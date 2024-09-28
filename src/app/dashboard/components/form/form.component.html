@@ -1,0 +1,15 @@
+<h1 class="font-bold text-center text-xl text-white">Pendientes</h1>
+<ul class="list-none space-y-4 p-6">
+  @for(item of mySignal();track $index){
+    <li class="flex items-center justify-between py-4 px-4 rounded-lg bg-green-200 hover:bg-green-300 shadow-md cursor-pointer">
+      <div class="flex items-center">
+        <input type="checkbox" class="mr-4 w-5 h-5 accent-primary-600">
+        <span class="text-primary-600">{{item.title}}</span>
+      </div>
+      <!-- Botón Eliminar -->
+      <button (click)="deleteTask($index)" class="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+        Eliminar
+      </button>
+    </li>
+  }
+</ul>

@@ -1,0 +1,34 @@
+<div class="container mx-auto flex flex-wrap p-4">
+  <!-- Nueva Tarea Form -->
+  <div class="w-full md:w-1/2 p-4">
+    <div class="bg-purple-300 shadow-lg rounded-lg p-6">
+      <h5 class="mb-4 text-2xl font-semibold text-neutral-800 dark:text-neutral-50 text-center">
+        Nueva Tarea
+      </h5>
+      <form [formGroup]="formPendientes" class="space-y-4" action="#">
+        <div>
+          <label for="title" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Título</label>
+          <input type="text" formControlName="title" id="title" placeholder="Lavar la ropa" required class="bg-purple-50 border-2 border-purple-300 rounded-lg w-full py-3 px-4 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <!-- Error Messages -->
+          <div *ngIf="validaNameMin('title') || validaControl('title')">
+            <small *ngIf="validaNameMin('title')" class="block mt-1 text-red-500">Mínimo 4 caracteres</small>
+            <small *ngIf="validaControl('title')" class="block mt-1 text-red-500">Este campo es requerido</small>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <button type="submit" (click)="saveTask()" class="text-white bg-pink-500 hover:bg-pink-600 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg text-lg w-full sm:w-auto px-6 py-3 text-center">
+            Agregar Tarea
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Otro componente -->
+  <div class="w-full md:w-1/2 p-4">
+    <div class="bg-purple-700 p-6 rounded-lg shadow-lg">
+      <app-form [mySignal]="counterSignal" (delete)="deleteTask($event)"></app-form>
+    </div>
+  </div>
+</div>
