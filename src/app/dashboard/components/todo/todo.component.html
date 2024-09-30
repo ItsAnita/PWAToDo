@@ -7,7 +7,6 @@
       </h5>
       <form [formGroup]="formPendientes" class="space-y-4" action="#">
         <div>
-          <label for="title" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Título</label>
           <input type="text" formControlName="title" id="title" placeholder="Lavar la ropa" required class="bg-purple-50 border-2 border-purple-300 rounded-lg w-full py-3 px-4 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
           <!-- Error Messages -->
           <div *ngIf="validaNameMin('title') || validaControl('title')">
